@@ -38,11 +38,8 @@
 
 
                           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <li><a href="/dashboard" class="dropdown-item" >Dashboard</a></li>
 
-                                <li><a href="/categorys" class="dropdown-item" >Category</a></li>
-
-
+                                <li><a href="/manage" class="dropdown-item" >MANAGE</a></li>
 
                                 {{-- -----main menu --}}
                                 <li><a href="/main_menu" class="dropdown-item" >Main Menu</a></li>
@@ -59,6 +56,7 @@
                                   @csrf
                               </form>
                           </div>
+
                         </ul>
                   @endguest
               </ul>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Category;
 use DB;
+use App\User;
 
 class CategorysController extends Controller
 {
@@ -25,20 +26,24 @@ class CategorysController extends Controller
 
 
 
-     // public function category_dashboard()
-     // {
-     //   $categorys = Category::orderBy('category_name' )->paginate(10); // paginate by 1 . 1 post per page.
-     //   return view('categorys.dashboard')->with('categorys', $categorys);
-     // }
+     public function dashboard()
+     {
+       $categorys = Category::orderBy('category_name' )->paginate(10); // paginate by 1 . 1 post per page.
+       return view('categorys.dashboard')->with('categorys', $categorys);
+     }
 
     public function index()
     {
-
       $categorys = Category::orderBy('category_name' )->paginate(10); // paginate by 1 . 1 post per page.
-
       return view('categorys.index')->with('categorys', $categorys);
-        //
     }
+
+    public function menu()
+    {
+      $categorys = Category::orderBy('category_name' )->paginate(10); // paginate by 1 . 1 post per page.
+      return view('category_menu')->with('categorys', $categorys);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -47,9 +52,7 @@ class CategorysController extends Controller
      */
     public function create()
     {
-        //
         return view('categorys.create');
-
     }
 
     /**
@@ -107,17 +110,17 @@ class CategorysController extends Controller
     public function show($id)
     {
         //
-        $category=  Category::find($id);
-      return view('categorys.show')->with('category', $category);
+        $categorys=  Category::find($id);
+      return view('categorys.show')->with('category', $categorys);
     }
 
 
-    public function shows($id)
-    {
-        //
-        $category=  "SELECT * FROM `categorys`";
-        return view('categorys.show')->with('category', $category);
-    }
+    // public function shows($id)
+    // {
+    //     //
+    //     $category=  "SELECT * FROM `categorys`";
+    //     return view('categorys.show')->with('category', $category);
+    // }
 
 
     /**

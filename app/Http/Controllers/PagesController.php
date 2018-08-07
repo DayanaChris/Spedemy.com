@@ -84,6 +84,17 @@ class PagesController extends Controller
     }
 
 
+    public function manage(){
+        $title = 'MANAGE!';
+        return view('manage')->with ('title', $title);
+    }
+
+    public function category_menu(){
+        $title = 'category_menu!';
+        return view('category_menu')->with ('title', $title);
+    }
+
+
 
 
 

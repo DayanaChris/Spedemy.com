@@ -41,11 +41,14 @@ Route::get('/lesson_shapes', 'PagesController@lesson_shapes');
 
 Route::get('/quiz_alphabetsA', 'PagesController@quiz_alphabetsA');
 Route::get('/lesson_alphabetsA', 'PagesController@lesson_alphabetsA');
+Route::get('/manage', 'PagesController@manage');
 
 
 
 Route::resource('posts', 'PostsController');
 Route::resource('categorys', 'CategorysController');
 
+
 Auth::routes();
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/categorys.dashboard', 'CategorysController@dashboard');
+Route::get('/category_menu', 'CategorysController@menu');

@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+     <head>
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!-- CSRF Token -->
+         <meta name="csrf-token" content="{{ csrf_token() }}">
+         <title>{{ config('app.name', 'Laravel') }}</title>
+         <!-- Fonts -->
+         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+         <!-- Styles -->
+         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+         <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+     {{-- bootstrap --}}
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
 
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
+
+
 
 
 <body >
     <div id="app">
-        {{-- <main class="py-4"> --}}
 
             @include('inc.navbar')
             <div class="container">
                 @include('inc.messages')
                 @yield('content')
             </div>
-        {{-- </main> --}}
     </div>
     <!-- Scripts -->
 

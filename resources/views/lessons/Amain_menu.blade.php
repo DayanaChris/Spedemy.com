@@ -1,3 +1,4 @@
+
  <!DOCTYPE html>
  <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
  <head>
@@ -191,6 +192,22 @@
                     <div class="card run-animation" style="background: skyblue; ">
                        <div class="card-header" style=" background:#FF1E9D"> <h2> <b> CHOOSE A LESSON </b></h2></div>
                                 <div class="containers ">
+
+                                  @if(count($categorys)>0)
+                                      @foreach($categorys as $category)
+                                 <ul>
+                                   <li> <img style="width:100%" src="/storage/category_image/{{$category->category_image}}" alt=""> </li>
+                                 </ul>
+
+
+                                      @endforeach
+                                      {{$categorys->links()}}
+
+                                  @else
+                                      <p>No category found</p>
+                                  @endif
+
+
                                     <ul>
                                         <li > <a href="/submenu_alphabets"><img class="card-img-top img-fluid box"   src="SPEDEMY/Menupage/a2.png" alt="Card image cap"></a></li>
                                         <li > <a  href="/submenu_numbers"> <img class="card-img-top img-fluid box"   src="SPEDEMY/Menupage/a5.png" alt="Card image cap"></a></li>
@@ -204,6 +221,11 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
 
 
 

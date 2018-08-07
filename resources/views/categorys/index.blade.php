@@ -1,31 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>CATEGORYS</h1>
-    @if(count($categorys)>0)
-        @foreach($categorys as $category)
-            <div class = "well">
-                <div class="row">
-                    <div class ="col-md-4 col-sm-4">
-                        <!-- <img style="width:100%" src="/storage/category_images/{{$category->category_image}}" alt=""> -->
-                        <img style="width:100%"  src="/storage/category_image/{{$category->category_image}}" alt="">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Category</div>
 
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                        <h3><a href="/categorys/{{$category->category_id}}">{{$category->category_name}}</a></h3>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <div class="panel-body">
+                        <a href="/categorys/create" class= "btn btn-primary"> create</a>
+                        <h3>Manage Category</h3>
+                        @if(count($categorys)>0)
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Category Name</th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                            @foreach($categorys as $category)
+                                <tr>
+                                    <td>{{$category->category_name}}</td>
+                                    <td><a href="/categorys/{{$category->category_id}}/edit" class="btn btn-default">Edit</a></td>
+                                    <td>
+                                            {!!Form::open(['action'=>['CategorysController@destroy',$category->category_id],'method'=>'POST','class'=>'pull-right'])!!}
+                                            {{Form::hidden('_method','DELETE')}}
+                                            {{Form::submit('Delete',['class'=> 'btn btn-danger'])}}
+                                            {!!Form::close()!!}
+
+                                    </td>
+
+                                </tr>
+                            @endforeach
+                        </table>
+                        @else
+                            <p>You have no added category</p>
+                        @endif
+
                     </div>
                 </div>
             </div>
-        @endforeach
-        {{$categorys->links()}}
-
-    @else
-        <p>No category found</p>
-    @endif
-
-
-<div class="" style="margin-bottom:10%">
-
+        </div>
+    </div>
 </div>
-  @include('inc.footer')
+
+
+
+@include('inc.footer')
+
+
 @endsection
