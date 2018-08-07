@@ -7,6 +7,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+
+  protected $primaryKey = 'user_id';
+
     use Notifiable;
 
     /**
@@ -15,7 +19,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name','last_name','user_name', 'age', 'gender', 'password',  'profile_picture',
+
+
+
     ];
 
     /**
@@ -26,4 +33,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    // tutorial 10
+      public function categorys(){
+          return $this->hasMany('App\Category');
+      }  // tutorial 10
+
+ 
+
+
+
 }
