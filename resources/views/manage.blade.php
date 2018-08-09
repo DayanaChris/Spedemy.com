@@ -35,10 +35,12 @@
 
                               </tr>
                               <tr>
-                                  <td>MANAGE LESSONS- TO FOLLOW</td>
-                                  <td><a href="/categorys/create" class= "btn btn-primary"> create</a></td>
-                                  <td>  <a href="/categorys" class= "btn btn-primary"> manage</a></td>
-                                  <td>  <a href="/dashboard" class= "btn btn-primary"> LIST VIEW</a></td>
+                                  <td>MANAGE LEVEL- TO FOLLOW</td>
+                                  <td><a href="/levels/create" class= "btn btn-primary"> create</a></td>
+                                  <td>  <a href="/levels" class= "btn btn-primary"> manage</a></td>
+                                  <td>  <a href="/levels.dashboard" class= "btn btn-primary"> LIST VIEW</a></td>
+                                  <td> <a href="/level_menu" class= "btn btn-primary"> LEVEL Menu</a></td>
+
 
                               </tr>
 

@@ -18,6 +18,8 @@ class CreateLevelsTable extends Migration
          Schema::create('levels', function (Blueprint $table) {
              $table->increments('level_id');
              $table->string('level_name');
+             $table->string('level_image');
+
 
 
          });

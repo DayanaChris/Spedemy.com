@@ -46,9 +46,15 @@ Route::get('/manage', 'PagesController@manage');
 
 
 Route::resource('posts', 'PostsController');
+Route::resource('levels', 'LevelsController');
+
 Route::resource('categorys', 'CategorysController');
 
 
 Auth::routes();
+
 Route::get('/categorys.dashboard', 'CategorysController@dashboard');
+Route::get('/levels.dashboard', 'LevelsController@dashboard');
+
+Route::get('/level_menu', 'LevelsController@menu');
 Route::get('/category_menu', 'CategorysController@menu');
